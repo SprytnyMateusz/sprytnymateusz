@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MGZBright MultiStream</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* trzy kolumny */
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+    }
+    .player {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    iframe, #twitch-embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <!-- Twitch -->
+    <div class="player">
+      <div id="twitch-embed"></div>
+    </div>
+
+    <!-- Kick -->
+    <div class="player">
+      <iframe src="https://player.kick.com/mgzbright" allowfullscreen></iframe>
+    </div>
+
+    <!-- YouTube -->
+    <div class="player">
+      <iframe src="https://www.youtube.com/embed/oQo1mNIvZb4?si=5b9jgr2IcUqoqqJB"
+        title="YouTube player" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Twitch script -->
+  <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+  <script type="text/javascript">
+    new Twitch.Player("twitch-embed", {
+      channel: "mgzbright",
+      parent: ["twojadomena.com"] // zmień na swoją domenę!
+    });
+  </script>
+</body>
+</html>
